@@ -1,0 +1,17 @@
+repos:
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.88.1 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: tfupdate
+      name: Autoupdate Terraform versions
+    - id: tfupdate
+      name: Autoupdate AWS provider versions
+      args:
+        - --args=provider aws
+    - id: terraform_fmt
+    - id: terraform_validate
+    - id: terraform_tflint
+    - id: terraform_checkov
+      args:
+        - --args=--quiet
+    - id: terraform_docs
